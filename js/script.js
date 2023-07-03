@@ -54,3 +54,27 @@ function getCityWeather(city) {
     })
     .catch((error) => console.error(`Error: ${error}`));
 }
+
+// Display Weather Data
+function displayWeatherData(data) {
+  const weatherUL = document.createElement('ul');
+  const weatherLI = document.createElement('li');
+  const weatherIcon = data.weather[0].icon;
+  const iconSrc = `./image/${weatherIcons[weatherIcon]}`;
+  
+  weatherLI.innerHTML = `
+    <h3 class="cityNameH3">${data.name}</h3>
+    <div class="weatherListBox">
+      <p class="cityDate">Date: ${new Date(data.dt * 1000).toLocaleDateString()}</p>
+      <p>Temperature: ${data.main.temp}F</p>
+      <p>Wind speed: ${data.wind.speed} m/s</p>
+      <p>Humidity: ${data.main.humidity}%</p>
+      <img src="${iconSrc}" alt="Weather Icon">
+    </div>
+  `;
+  weatherUL.appendChild(weatherLI);
+  
+  containerWeather.innerHTML = '';
+  containerWeather.appendChild(weatherUL);
+}
+
