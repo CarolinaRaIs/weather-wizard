@@ -43,3 +43,14 @@ formSearch.addEventListener('submit', function (e) {
   e.target.elements.cityName.value = '';
 });
 
+// City Weather Function
+function getCityWeather(city) {
+  fetch(`${weatherAPI}?q=${city}&appid=${accessKey}&units=imperial&cnt=5`)
+    .then((response) => response.json())
+    .then((data) => {
+      const parsedData = JSON.parse(JSON.stringify(data));
+      displayWeatherData(parsedData);
+      saveCityHistory(parsedData.name);
+    })
+    .catch((error) => console.error(`Error: ${error}`));
+}
