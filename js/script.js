@@ -31,3 +31,15 @@ const weatherIcons = {
   '50d': 'mist_day.png',
   '50n': 'mist_night.png'
 }
+
+const containerWeather = document.querySelector('#weatherContainer');
+
+// Search Form Submission Event Listener
+formSearch.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const cityName = e.target.elements.cityName.value;
+  getCityWeather(cityName);
+  getCityForecast(cityName);
+  e.target.elements.cityName.value = '';
+});
+
