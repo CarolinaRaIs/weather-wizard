@@ -1,1 +1,17 @@
 
+:root {
+  --primary-color: #4CA1AF;
+  --secondary-color: #C4E0E5;
+  --background-color: #f4f4f4;
+  --text-color-dark: #333;
+  --text-color-light: #ffffff;
+  --font-main: 'Roboto', sans-serif;
+  --font-accent: 'Montserrat', sans-serif;
+  --shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
