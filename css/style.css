@@ -31,3 +31,24 @@ header {
   color: var(--primary-color);
 }
 
+.background-hero {
+  background-image: url("weather-map.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  padding: 5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-container {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.form-search {
+  display: flex;
+  align-items: center;
+}
