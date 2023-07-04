@@ -11,26 +11,26 @@ const accessKey = 'a76d5ca55046a6730024f9d3c573ab2b';
 //The first two digits represent the weather condition: ie: 01=clear sky
 //d = Daytime
 //n = Nighttime
-const weatherIcons = {
-  '01d': 'clear_sky_day.png',
-  '01n': 'clear_sky_night.png',
-  '02d': 'few_clouds_day.png',
-  '02n': 'few_clouds_night.png',
-  '03d': 'scattered_clouds_day.png',
-  '03n': 'scattered_clouds_night.png',
-  '04d': 'broken_clouds_day.png',
-  '04n': 'broken_clouds_night.png',
-  '09d': 'shower_rain_day.png',
-  '09n': 'shower_rain_night.png',
-  '10d': 'rain_day.png',
-  '10n': 'rain_night.png',
-  '11d': 'thunderstorm_day.png',
-  '11n': 'thunderstorm_night.png',
-  '13d': 'snow_day.png',
-  '13n': 'snow_night.png',
-  '50d': 'mist_day.png',
-  '50n': 'mist_night.png'
-}
+//const weatherIcons = {
+  //'01d': 'clear_sky.png',
+  //'01n': 'clear_sky.png',
+  //'02d': 'few_clouds.png',
+  //'02n': 'few_clouds.png',
+  //'03d': 'scattered_clouds.png',
+  //'03n': 'scattered_clouds.png',
+  //'04d': 'broken_clouds.png',
+  //'04n': 'broken_clouds.png',
+  //'09d': 'shower_rain.png',
+  //'09n': 'shower_rain.png',
+  //'10d': 'rain.png',
+  //'10n': 'rain.png',
+  //'11d': 'thunderstorm.png',
+  //'11n': 'thunderstorm.png',
+  //'13d': 'snow.png',
+  //'13n': 'snow.png',
+  //'50d': 'mist_fog.png',
+  //'50n': 'mist_fog.png'
+//}
 
 const containerWeather = document.querySelector('#weatherContainer');
 
@@ -62,7 +62,8 @@ function displayWeatherData(data) {
   const weatherUL = document.createElement('ul');
   const weatherLI = document.createElement('li');
   const weatherIcon = data.weather[0].icon;
-  const iconSrc = `./image/${weatherIcons[weatherIcon]}`;
+  //const iconSrc = `./image/${weatherIcons[weatherIcon]}`;
+  const iconSrc = `http://openweathermap.org/img/wn/${weatherIcon}.png`;  // Modified this line
   
   weatherLI.innerHTML = `
     <h3 class="cityNameH3">${data.name}</h3>
