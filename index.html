@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Setting character encoding for the document -->
+  <meta charset="UTF-8">
+  <!-- Configuring viewport for responsive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Linking the external CSS file -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Making a connection to Google Fonts for improved loading times -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Importing the Roboto font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Importing the Montserrat font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Setting the title of the document -->
+  <title>Weather App</title>
+</head>
+
+<body>
+  <!-- Header section containing the main title -->
+  <header>
+    <h1>Weather Wizard</h1>
+  </header>
+  
+  <!-- A container for the background image and main content -->
+  <div class="background-hero">
+
+    <!-- A container for the search form -->
+    <div class="search-container">
+      <!-- Form to search for weather data -->
+      <form class="form-search">
+        <!-- Input field to enter city name -->
+        <input type="text" name="cityName" placeholder="Wilsonville">
+        <!-- Submit button for the form -->
+        <button class="button-search" type="submit">Search</button>
+      </form>
+    </div>
+
+    <!-- A wrapper for the content including weather info and search history -->
+    <div class="content-wrapper">
+      <!-- A container for the city information and weather data -->
+      <div class="city-info">
+        <!-- Title displaying the city name -->
+        <h2 id="cityName"></h2>
+                
+        <!-- Container for the current weather data -->
+        <div id="weatherContainer" class="current-weather-box"></div>
+      </div>
+            
+      <!-- Container for the search history -->
+      <aside>
+        <!-- Title for the search history section -->
+        <h3>Previous Searches</h3>
+        <!-- List container for displaying search history -->
+        <div class="history-item" id="cityHistoryList"></div>
+      </aside>
+    </div>
+
+  </div>
+
+  <!-- Link to the external JavaScript file -->
+  <script src="./js/scripts.js"></script>
+  <!-- Link to the external JavaScript library 'dayjs' -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.7/dayjs.min.js"></script>
+</body>
+
+</html>
