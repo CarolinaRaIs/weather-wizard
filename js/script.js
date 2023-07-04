@@ -46,7 +46,9 @@ formSearch.addEventListener('submit', function (e) {
 // City Weather Function
 function getCityWeather(city) {
   fetch(`${weatherAPI}?q=${city}&appid=${accessKey}&units=imperial&cnt=5`)
-    .then((response) => response.json())
+    .then((response) => 
+    response.json()
+    )
     .then((data) => {
       const parsedData = JSON.parse(JSON.stringify(data));
       displayWeatherData(parsedData);
@@ -102,4 +104,65 @@ function saveCityHistory(city) {
 
     cityHistoryList.appendChild(cityButton);
   });
+}
+
+// City Forecast Function
+const weatherForecastBox = document.querySelector('#weatherBox');
+
+function getCityForecast(city) {
+  fetch(`${forecastAPI}?q=${city}&appid=${accessKey}&units=imperial&cnt=6`)
+    .then((response) => response.json())
+    .then((data) => {
+      const parsedData = JSON.parse(JSON.stringify(data));
+      displayForecastData(parsedData);
+    })
+    .catch((error) => console.error(`Error: ${error}`));
+}
+
+// Display Forecast Data
+function displayForecastData(data) {
+  const forecastUL = document.createElement('ul');
+  
+  const currentDate = new Date();
+  currentDate.setDate(currentDate.getDate() + 1);
+  
+  // slice(1) =  
+    // "give me a new array that contains all the elements from the original array...
+    // ...starting from the element at index 1 (second element) through the end of the array".
+  data.list.slice(1).forEach((forecast, index) => {
+    const forecastLI = document.createElement('li');
+  
+    const temperature = forecast.main.temp;
+    const wind = forecast.wind.speed;
+    const humidity = forecast.main.humidity;
+
+    // This line of code calculates a new date that is 'index' number of days in the future from currentDate, and then converts it into a localized string format
+        // .toLocaleDateString() = converts the date into a string, in a format that is readable and localized to the user's locale (e.g. "MM/DD/YYYY" )
+        // (index* 24 hours * 60 minutes * 60 seconds * 1000 milliseconds)= This calculates the number of milliseconds for index number of days. 
+            // For example, if index is 2, this would calculate the number of milliseconds in two days.
+    const date = new Date(currentDate.getTime() + index * 24 * 60 * 60 * 1000).toLocaleDateString();
+  
+    forecastLI.innerHTML = `
+      <div class="forecastListBox"> 
+        <p>Date: ${date}</p>
+        <p>Temperature: ${temperature}F</p>
+        <p>Wind speed: ${wind} m/s</p>
+        <p>Humidity: ${humidity}%</p>
+      </div>
+    `;
+  
+    forecastUL.appendChild(forecastLI);
+  });
+  
+  weatherForecastBox.innerHTML = '';
+  weatherForecastBox.appendChild(forecastUL);
+}
+
+// Initial Load of Default City
+// window.onload=
+    // This function runs once the web page has completely loaded. 
+    // It's used here to display weather data for a default city when the page is opened.
+window.onload = function () {
+  getCityWeather('Wilsonville');
+  getCityForecast('Wilsonville');
 }
