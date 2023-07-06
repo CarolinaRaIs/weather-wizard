@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function() { // added this line
+
 // Variables
 const formSearch = document.querySelector('.searchForm');
 const searchButton = document.querySelector('.btnSearch');
@@ -11,28 +13,10 @@ const accessKey = 'a76d5ca55046a6730024f9d3c573ab2b';
 //The first two digits represent the weather condition: ie: 01=clear sky
 //d = Daytime
 //n = Nighttime
-//const weatherIcons = {
-  //'01d': 'clear_sky.png',
-  //'01n': 'clear_sky.png',
-  //'02d': 'few_clouds.png',
-  //'02n': 'few_clouds.png',
-  //'03d': 'scattered_clouds.png',
-  //'03n': 'scattered_clouds.png',
-  //'04d': 'broken_clouds.png',
-  //'04n': 'broken_clouds.png',
-  //'09d': 'shower_rain.png',
-  //'09n': 'shower_rain.png',
-  //'10d': 'rain.png',
-  //'10n': 'rain.png',
-  //'11d': 'thunderstorm.png',
-  //'11n': 'thunderstorm.png',
-  //'13d': 'snow.png',
-  //'13n': 'snow.png',
-  //'50d': 'mist_fog.png',
-  //'50n': 'mist_fog.png'
-//}
+//const weatherIcons = {}
 
 const containerWeather = document.querySelector('#weatherContainer');
+const weatherForecastBox = document.querySelector('#futureWeatherContainer'); //Added this code
 
 // Search Form Submission Event Listener
 formSearch.addEventListener('submit', function (e) {
@@ -108,7 +92,7 @@ function saveCityHistory(city) {
 }
 
 // City Forecast Function
-const weatherForecastBox = document.querySelector('#weatherBox');
+//const weatherForecastBox = document.querySelector('#weatherBox');
 
 function getCityForecast(city) {
   fetch(`${forecastAPI}?q=${city}&appid=${accessKey}&units=imperial&cnt=6`)
@@ -167,3 +151,4 @@ window.onload = function () {
   getCityWeather('Wilsonville');
   getCityForecast('Wilsonville');
 }
+});

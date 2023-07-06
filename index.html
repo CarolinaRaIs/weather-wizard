@@ -2,19 +2,25 @@
 <html lang="en">
 
 <head>
-  <!-- Setting character encoding for the document -->
+  <!-- Meta tag for setting character encoding for the document -->
   <meta charset="UTF-8">
-  <!-- Configuring viewport for responsive design -->
+
+  <!-- Meta tag for configuring the viewport, essential for responsive design -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Linking the external CSS file -->
-  <link rel="stylesheet" href="style.css">
-  <!-- Making a connection to Google Fonts for improved loading times -->
+
+  <!-- Link to the external CSS stylesheet -->
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- Preconnecting to Google Fonts for better performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Importing the Roboto font from Google Fonts -->
+
+  <!-- Linking the Roboto font from Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Importing the Montserrat font from Google Fonts -->
+
+  <!-- Linking the Montserrat font from Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
   <!-- Setting the title of the document -->
   <title>Weather App</title>
 </head>
@@ -22,48 +28,66 @@
 <body>
   <!-- Header section containing the main title -->
   <header>
-    <h1>Weather Wizard</h1>
+    <!-- Container for the background image and main title -->
+    <div class="background-hero">
+      <!-- Main title -->
+      <h1 class="title-main">Weather Wizard</h1>
+    </div>
   </header>
-  
-  <!-- A container for the background image and main content -->
-  <div class="background-hero">
+    
+  <!-- Main content section -->
+  <div class="city-search-section">
+        
+    <!-- Sidebar for search and search history -->
+    <aside>
+      <!-- Title for the search section -->
+      <h2 class="search-title">Search with City Name</h2>
 
-    <!-- A container for the search form -->
-    <div class="search-container">
-      <!-- Form to search for weather data -->
-      <form class="form-search">
-        <!-- Input field to enter city name -->
-        <input type="text" name="cityName" placeholder="Wilsonville">
-        <!-- Submit button for the form -->
-        <button class="button-search" type="submit">Search</button>
-      </form>
-    </div>
-
-    <!-- A wrapper for the content including weather info and search history -->
-    <div class="content-wrapper">
-      <!-- A container for the city information and weather data -->
-      <div class="city-info">
-        <!-- Title displaying the city name -->
-        <h2 id="cityName"></h2>
-                
-        <!-- Container for the current weather data -->
-        <div id="weatherContainer" class="current-weather-box"></div>
+      <!-- Container for the search form -->
+      <div class="search-container">
+        <!-- Form for searching the weather by city name -->
+        <form class="searchForm">
+          <input type="text" name="cityName" placeholder="Wilsonville" class="input-city">
+          <button class="button-search" type="submit">Search</button>
+        </form>
       </div>
-            
+
       <!-- Container for the search history -->
-      <aside>
+      <div class="history-container">
         <!-- Title for the search history section -->
-        <h3>Previous Searches</h3>
-        <!-- List container for displaying search history -->
+        <h3 class="history-title">Previous Searches</h3>
+        <!-- Container for displaying search history items -->
         <div class="history-item" id="cityHistoryList"></div>
-      </aside>
-    </div>
+      </div>
+    </aside>
 
-  </div>
+    <!-- Container for displaying the weather content -->
+    <div class="content-wrapper">
 
+      <!-- New container for both current and future weather -->
+      <div class="weather-content">
+
+        <!-- Container for the city information -->
+        <div class="city-info">
+          <!-- Element for displaying city name -->
+          <h2 id="cityName" class="city-name"></h2>
+          <!-- Container for displaying current weather data -->
+          <div id="weatherContainer" class="current-weather-box"></div>
+        </div>
+
+        <!-- Container for displaying future weather data -->
+        <div id="futureWeatherContainer" class="future-weather-box"></div>
+
+      </div> <!-- End of weather-content -->
+
+    </div> <!-- End of content-wrapper -->
+
+  </div> <!-- End of city-search-section -->
+    
   <!-- Link to the external JavaScript file -->
-  <script src="./js/scripts.js"></script>
-  <!-- Link to the external JavaScript library 'dayjs' -->
+  <script src="./js/script.js"></script>
+
+  <!-- Link to an external JavaScript library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.7/dayjs.min.js"></script>
 </body>
 
