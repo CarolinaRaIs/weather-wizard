@@ -104,6 +104,8 @@ function getCityForecast(city) {
     .catch((error) => console.error(`Error: ${error}`));
 }
 
+
+
 // Display Forecast Data
 function displayForecastData(data) {
   const forecastUL = document.createElement('ul');
@@ -120,6 +122,9 @@ function displayForecastData(data) {
     const temperature = forecast.main.temp;
     const wind = forecast.wind.speed;
     const humidity = forecast.main.humidity;
+    //Added this:
+    const weatherIcon = forecast.weather[0].icon; // Fetch the icon code
+    const iconSrc = `http://openweathermap.org/img/wn/${weatherIcon}.png`; // Build the icon URL
 
     // This line of code calculates a new date that is 'index' number of days in the future from currentDate, and then converts it into a localized string format
         // .toLocaleDateString() = converts the date into a string, in a format that is readable and localized to the user's locale (e.g. "MM/DD/YYYY" )
@@ -133,6 +138,7 @@ function displayForecastData(data) {
         <p>Temperature: ${temperature}F</p>
         <p>Wind speed: ${wind} m/s</p>
         <p>Humidity: ${humidity}%</p>
+        <img src="${iconSrc}" alt="Weather Icon" class="weather-icon">
       </div>
     `;
   

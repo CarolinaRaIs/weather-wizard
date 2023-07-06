@@ -94,11 +94,13 @@
     padding: 2rem;
   }
   
-  #weatherContainer, .future-weather-box {
+  /*#weatherContainer, .future-weather-box*/
+  #weatherContainer, .futureWeatherContainer {
     margin: 2rem 0;
   }
   
-  .current-weather-box, .future-weather-box {
+  /*.current-weather-box, .future-weather-box */
+  .current-weather-box, .futureWeatherContainer {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -107,6 +109,18 @@
   .current-weather-box img, .future-weather-box img {
     width: 80px;
   }
+
+  /* New styles for the weather content container */
+.weather-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.future-weather-box {
+  margin: 2rem;
+}
+
+
   
   .history-item {
     background-color: var(--secondary-color);
@@ -133,4 +147,6 @@
       width: 100%;
     }
   }
+
+
   
