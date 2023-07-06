@@ -109,6 +109,9 @@ function getCityForecast(city) {
 // Display Forecast Data
 function displayForecastData(data) {
   const forecastUL = document.createElement('ul');
+
+  //Added forecast-list to the ul element thats created to contain the forecast items, and then can style this class using CSS to make the forecast items display horizontally
+  forecastUL.classList.add('forecast-list');
   
   const currentDate = new Date();
   currentDate.setDate(currentDate.getDate() + 1);
@@ -118,7 +121,10 @@ function displayForecastData(data) {
     // ...starting from the element at index 1 (second element) through the end of the array".
   data.list.slice(1).forEach((forecast, index) => {
     const forecastLI = document.createElement('li');
+
   
+    // 
+
     const temperature = forecast.main.temp;
     const wind = forecast.wind.speed;
     const humidity = forecast.main.humidity;
