@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function() { // added this line
+
 // Variables
 const formSearch = document.querySelector('.searchForm');
 const searchButton = document.querySelector('.btnSearch');
@@ -11,28 +13,10 @@ const accessKey = 'a76d5ca55046a6730024f9d3c573ab2b';
 //The first two digits represent the weather condition: ie: 01=clear sky
 //d = Daytime
 //n = Nighttime
-//const weatherIcons = {
-  //'01d': 'clear_sky.png',
-  //'01n': 'clear_sky.png',
-  //'02d': 'few_clouds.png',
-  //'02n': 'few_clouds.png',
-  //'03d': 'scattered_clouds.png',
-  //'03n': 'scattered_clouds.png',
-  //'04d': 'broken_clouds.png',
-  //'04n': 'broken_clouds.png',
-  //'09d': 'shower_rain.png',
-  //'09n': 'shower_rain.png',
-  //'10d': 'rain.png',
-  //'10n': 'rain.png',
-  //'11d': 'thunderstorm.png',
-  //'11n': 'thunderstorm.png',
-  //'13d': 'snow.png',
-  //'13n': 'snow.png',
-  //'50d': 'mist_fog.png',
-  //'50n': 'mist_fog.png'
-//}
+//const weatherIcons = {}
 
 const containerWeather = document.querySelector('#weatherContainer');
+const weatherForecastBox = document.querySelector('#futureWeatherContainer'); //Added this code
 
 // Search Form Submission Event Listener
 formSearch.addEventListener('submit', function (e) {
@@ -108,7 +92,7 @@ function saveCityHistory(city) {
 }
 
 // City Forecast Function
-const weatherForecastBox = document.querySelector('#weatherBox');
+//const weatherForecastBox = document.querySelector('#weatherBox');
 
 function getCityForecast(city) {
   fetch(`${forecastAPI}?q=${city}&appid=${accessKey}&units=imperial&cnt=6`)
@@ -120,9 +104,14 @@ function getCityForecast(city) {
     .catch((error) => console.error(`Error: ${error}`));
 }
 
+
+
 // Display Forecast Data
 function displayForecastData(data) {
   const forecastUL = document.createElement('ul');
+
+  //Added forecast-list to the ul element thats created to contain the forecast items, and then can style this class using CSS to make the forecast items display horizontally
+  forecastUL.classList.add('forecast-list');
   
   const currentDate = new Date();
   currentDate.setDate(currentDate.getDate() + 1);
@@ -132,10 +121,16 @@ function displayForecastData(data) {
     // ...starting from the element at index 1 (second element) through the end of the array".
   data.list.slice(1).forEach((forecast, index) => {
     const forecastLI = document.createElement('li');
+
   
+    // 
+
     const temperature = forecast.main.temp;
     const wind = forecast.wind.speed;
     const humidity = forecast.main.humidity;
+    //Added this:
+    const weatherIcon = forecast.weather[0].icon; // Fetch the icon code
+    const iconSrc = `http://openweathermap.org/img/wn/${weatherIcon}.png`; // Build the icon URL
 
     // This line of code calculates a new date that is 'index' number of days in the future from currentDate, and then converts it into a localized string format
         // .toLocaleDateString() = converts the date into a string, in a format that is readable and localized to the user's locale (e.g. "MM/DD/YYYY" )
@@ -149,6 +144,7 @@ function displayForecastData(data) {
         <p>Temperature: ${temperature}F</p>
         <p>Wind speed: ${wind} m/s</p>
         <p>Humidity: ${humidity}%</p>
+        <img src="${iconSrc}" alt="Weather Icon" class="weather-icon">
       </div>
     `;
   
@@ -167,3 +163,4 @@ window.onload = function () {
   getCityWeather('Wilsonville');
   getCityForecast('Wilsonville');
 }
+});
