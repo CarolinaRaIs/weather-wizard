@@ -21,9 +21,11 @@ body {
   line-height: 1.6;
   color: var(--text-color-dark);
 }
-  
+
+/* Weather Wizard */ 
 .title-main {
   font-family: var(--font-accent);
+  color: #333331;
 }
   
 header {
@@ -34,7 +36,7 @@ header {
 }
   
 .background-hero {
-  background-image: url("weather-map.png");
+  background-image: url("../assets/Sky.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
