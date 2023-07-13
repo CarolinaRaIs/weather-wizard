@@ -52,3 +52,37 @@ The application utilizes the following technologies and frameworks so that the a
 - [Questions](#questions)
    
 ## [Installation:](#installation:)
+
+1. Clone the Repository
+
+    Open your terminal/command prompt, navigate to the directory where you want to clone the repository and run:
+
+    `git clone https://github.com/YourUsername/weather-wizard.git`
+
+    Replace YourUsername with your GitHub username.
+
+2. Navigate into the Directory
+
+    `cd weather-wizard`
+
+3. Install the Dependencies
+
+    Run the following command to install the project dependencies:
+
+    `npm install`
+
+4. Open the Project
+
+    Open the project folder in your text editor.
+
+5. Setup API Key
+
+    You need to obtain an API key from OpenWeatherMap. Register for a new API key follow this link:https://home.openweathermap.org/users/sign_up. You may need to wait for up to 2 hours for the API key to activate.
+
+    Once you get the API key, open the script.js file and replace {API key} with your actual API key in the following line:
+
+    `const API_KEY = '{API key}';`
+
+6. Run the Application
+
+    You can now open the index.html file in your browser to see the application.
