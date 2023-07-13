@@ -1,9 +1,6 @@
 # weather-wizard
-A 5 day weather forecast based on the location searched. 
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
-
-The banner image is a cropped version of this image: https://www.americanelements.com/file/3368 
 
 ## [Description:](#description)
 
@@ -102,6 +99,15 @@ The application utilizes the following technologies and frameworks so that the a
 
 *This application uses localStorage to store the search history. When you reload the page or revisit it later, your search history will be preserved until you clear your browser's local storage.*
 
+Weather Wizard Dashboard:
+![plot](./assets/weather-wizard-app.png)
+
+    To access the Github Repository visit:
+    https://github.com/CarolinaRaIs/weather-wizard
+
+    To access the deployed site visit:
+    https://carolinarais.github.io/weather-wizard/ 
+
 
 ## [License:](#license:)
 
@@ -110,6 +116,8 @@ The application utilizes the following technologies and frameworks so that the a
 ## [Contributing:](#contributing:)
 
        Contributions are welcome and encouraged for this project. If you find any issues or have any suggestions for new features, please open an issue or submit a pull request. Before submitting a pull request, please ensure that your code adheres to the project's coding guidelines and has appropriate test coverage. Thank you for your interest in contributing to this project!  
+
+       The banner image for this app is a cropped version of this image: https://www.americanelements.com/file/3368 
    
 ## [Tests:](#tests:)
 
