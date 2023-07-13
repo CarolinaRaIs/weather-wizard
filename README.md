@@ -86,3 +86,18 @@ The application utilizes the following technologies and frameworks so that the a
 6. Run the Application
 
     You can now open the index.html file in your browser to see the application.
+
+
+## [Usage:](#usage:)
+
+* Input the city name in the search box and click the "Search" button.
+
+* The application will display the current weather conditions including the city name, the date, an icon representation of the weather conditions, the temperature, the humidity, and the wind speed.
+
+* It will also display the 5-day forecast for the city including the date, an icon representation of the weather conditions, the temperature, the wind speed, and the humidity.
+
+* Your search history will be stored and you can click on a previously searched city to view its weather conditions again
+
+***Note on Data Persistence:***
+
+*This application uses localStorage to store the search history. When you reload the page or revisit it later, your search history will be preserved until you clear your browser's local storage.*
